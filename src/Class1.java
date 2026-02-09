@@ -17,19 +17,30 @@ public class Class1 {
 //            System.out.println(i);
 //        }
 
-        Book bb = new Book();
-        //bb.pages=100; bb.author="JKR"; bb.title="HP";
-        Book bb2 = new Book("LOTR","Tolkien",1000);
-        Book bb3 = new Book("1");
-        bb3.setTitle("HP");
-        System.out.println(bb3.getTitle());
+//        Book bb = new Book();
+//        //bb.pages=100; bb.author="JKR"; bb.title="HP";
+//        Book bb2 = new Book("LOTR","Tolkien",1000);
+//        Book bb3 = new Book("1");
+//        bb3.setTitle("HP");
+        //System.out.println(bb3.getTitle());
         //System.out.println(bb.author + " " + bb.title + " " + bb.pages);
         //System.out.println(bb2.author + " " + bb2.title + " " + bb2.pages);
 
-        Person p = new Person();
-        Person p2 = new Person("Trinity", 30, "actress", "married");
-        System.out.println("Person 2: " + p2);
+//        Person p = new Person();
+//        Person p2 = new Person("Trinity", 30, "actress", "married");
+//        System.out.println("Person 2: " + p2);
 
+        Book b1 = new Book();
+        b1.setTitle("HP"); b1.setAuthor("JKR");b1.setPages(1000);
+        Book.bumaga = "papyrus"; System.out.println(b1);
+        Book b2 = new Book("HP", "JKR",1000);
+        System.out.println(b2);
+        if(b1.equals(b2)){
+            System.out.println("The books are the same");
+        }
+        else{
+            System.out.println("The books are different");
+        }
     }
 }
 
@@ -37,6 +48,7 @@ class Book{
     private String title;
     private String author;
     private int pages;
+    public static String bumaga;
 
     public Book(){}
     public Book(String title, String author, int pages){
@@ -69,6 +81,17 @@ class Book{
 
     public void setPages(int pages) {
         this.pages = pages;
+    }
+
+    public String toString(){
+        return this.title + " " + this.author + " " + bumaga;
+    }
+
+    public boolean equals(Book b){
+        if(b != null){
+            if(this.author == b.author && this.title == b.title) return true;
+        }
+        return false;
     }
 }
 
