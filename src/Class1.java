@@ -30,16 +30,28 @@ public class Class1 {
 //        Person p2 = new Person("Trinity", 30, "actress", "married");
 //        System.out.println("Person 2: " + p2);
 
-        Book b1 = new Book();
-        b1.setTitle("HP"); b1.setAuthor("JKR");b1.setPages(1000);
-        Book.bumaga = "papyrus"; System.out.println(b1);
-        Book b2 = new Book("HP", "JKR",1000);
-        System.out.println(b2);
-        if(b1.equals(b2)){
-            System.out.println("The books are the same");
-        }
-        else{
-            System.out.println("The books are different");
+//        Book b1 = new Book();
+//        b1.setTitle("HP"); b1.setAuthor("JKR");b1.setPages(1000);
+//        Book.bumaga = "papyrus"; System.out.println(b1);
+//        Book b2 = new Book("HP", "JKR",1000);
+//        System.out.println(b2);
+//        if(b1.equals(b2)){
+//            System.out.println("The books are the same");
+//        }
+//        else{
+//            System.out.println("The books are different");
+//        }
+        polymorphismFunc();
+    }
+
+    public static void polymorphismFunc(){
+        Book[] books = new Book[3];
+        books[0] = new Book();
+        books[1] = new EBook("Ebook1","EAuthor",100,3.05,"pdf");
+        books[2] = new SciFiBook("Sbook", "",1,"astrophysics");
+
+        for(int i=0; i< books.length; i++){
+            System.out.println(books[i]);
         }
     }
 }
@@ -92,6 +104,43 @@ class Book{
             if(this.author == b.author && this.title == b.title) return true;
         }
         return false;
+    }
+}
+
+
+class EBook extends Book{
+    private double fileSize;
+    private String format;
+
+    public EBook(String title, String author, int pages, double fileSize, String format){
+        super(title,author,pages);
+        this.fileSize = fileSize;
+        this.format = format;
+    }
+
+    @Override
+    public String toString() {
+        String superStr = super.toString();
+        return superStr + "EBook{" +
+                "fileSize=" + fileSize +
+                ", format='" + format + '\'' +
+                '}';
+    }
+}
+
+class SciFiBook extends Book{
+    private String field;
+
+    public SciFiBook(String title, String author, int pages, String field){
+        super(title,author,pages);
+        this.field = field;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "SciFiBook{" +
+                "field='" + field + '\'' +
+                '}';
     }
 }
 
@@ -159,4 +208,5 @@ class Person{
         this.occupation = occupation;
     }
 }
+
 
