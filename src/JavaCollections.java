@@ -1,5 +1,6 @@
 //import java.util.ArrayList;
 //import java.util.LinkedList;
+import java.time.LocalDate;
 import java.util.*;
 public class JavaCollections {
     public static void main(String[] args){
@@ -42,6 +43,11 @@ System.out.println(ad);
         while(!ad.isEmpty()) {
             System.out.print(ad.pollLast() + " ");
         }
+
+        HashSet<String> hs = new HashSet<>();
+        HashMap<String, String> hm = new HashMap<>();
+        LinkedHashSet<Integer> lhs = new LinkedHashSet<>();
+
 
 
 
