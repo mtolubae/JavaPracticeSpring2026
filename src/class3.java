@@ -18,7 +18,7 @@ public class class3 {
     }
 }
 
-class Student{
+class Student implements Comparable<Student>{
     //1st part
     private String name;
     private double gpa;
@@ -27,6 +27,11 @@ class Student{
     public Student(String name){
         this.name = name;
         this.gpa = 0;
+    }
+
+    public Student(String name, double gpa){
+        this.name=name;
+        this.gpa = gpa;
     }
 
     public void displayInfo() {
@@ -42,6 +47,24 @@ class Student{
     public String toString(){
         displayInfo();
         return "";
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getGpa() {
+        return gpa;
+    }
+
+    public void setGpa(double gpa) {
+        this.gpa = gpa;
+    }
+
+    @Override
+    public int compareTo(Student o) {
+        //return Double.compare(this.gpa,o.gpa); ascending
+        return Double.compare(o.gpa,this.gpa); //descending
     }
 }
 class StudentUtils{
